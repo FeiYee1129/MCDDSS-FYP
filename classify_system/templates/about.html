@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{% block head %}About{% endblock %}</title>
+</head>
+
+<body>
+    {% block body %}
+    <div class="row mt mb">
+        <div class="col-lg-12">
+        <h3><i class="fa fa-angle-right"></i> About MCDSS</h3>
+        <br>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="dmbox">
+            <div class="service-icon">
+                <i class="dm-icon fa fa-question fa-3x"></i>
+            </div>
+            <h4>What is MCDSS?</h4>
+            <p>Malocclusion Classification Decision Support System<br/>
+            MCDSS is a system that used to manage dentistry patient's record and provide decision support in classifying malocclusion classes.</p>
+            </div>
+        </div>
+        <!-- end dmbox -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="dmbox">
+                <div class="service-icon">
+                    <i class="dm-icon fa fa-user fa-3x"></i>
+                </div>
+                <h4>Who are the users?</h4>
+                <p>It is used by Orthodontist, dentist and student of dentistry field which is equip with dental expertise.</p><br/><br/>
+            </div>
+        </div>
+        <!-- end dmbox -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="dmbox">
+            <div class="service-icon">
+                <i class="dm-icon fa fa-info fa-3x"></i>
+            </div>
+            <h4>About the classification</h4>
+            <p>The classification engine is built using machine learning technology. The result is only a support for decision making, it is not absolute.</p><br/><br/>
+            </div>
+        </div>
+        <!-- end dmbox -->
+        </div>
+        <!--  /col-lg-12 -->
+    </div>
+    <!-- /row -->
+    <div class="row content-panel">
+        <h2 class="centered">About Malocclusion</h2>
+        <div class="col-md-10 col-md-offset-1 mt mb">
+        <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseOne">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>What is the standard used for classification?
+                    </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                    <p>The standard that used for the malocclusion classification is Bristish Standard Institute 1983 (BSI).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseTwo">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>What is the input of the classification.
+                    </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                    <p>The input used is Cephalometric x-ray.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseThree">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>How many classes is involved?
+                    </a>
+                </div>
+                <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                    <p>Only three classes are involved. The two divisions from BSI Class II are unable to be diagnosed by using only cephalometric x-ray images.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end accordion -->
+        </div>
+        <!-- col-md-10 -->
+    </div>
+    <!--main content end-->
+    {% endblock %}
+</body>
+
+</html>

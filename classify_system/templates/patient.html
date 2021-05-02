@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block head %}Patient{% endblock %}</title>
+    </head>
+    <body>
+    {% block body %}
+        {% if message %}
+        <script>
+            alert('{{ message }}')
+        </script>
+        {% endif %}
+        <h3><i class="fa fa-angle-right"></i> List of Patient</h3>
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <div class="form-group">
+                        <div class="col-sm-5" style="padding-bottom: 20px;">
+                            <a class="btn btn-theme" href="{% url 'addPatient' %}"><i class="fa fa-plus"></i> Add</a>
+                        </div>
+                        <div class="col-sm-7">
+                            <!-- Search bar -->
+                            <form class="form-inline" role="form" method="POST" action="/patient_list/search/">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                    <input type="text" class="form-control" id="exampleInputText" placeholder="Search by name or ID..." name="search" style="width: 350px;">                                        
+                                </div>
+                                {% if clear == "True" %}
+                                <a class="btn btn-default" href="{% url 'listPatient' %}">
+                                    Clear
+                                </a>
+                                {% else %}
+                                <a class="btn btn-default" href="{% url 'listPatient' %}" disabled>
+                                    Clear
+                                </a>
+                                {% endif %}
+                                <button type="submit" class="btn btn-default">Search</button>
+                            </form>
+                        </div>
+                        <div style="padding: 15px;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Patient ID</th>
+                                        <th scope="col">Age</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">PIC</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pat in patient %}
+                                    <tr>
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{ pat.name }}</td>
+                                        <td>{{ pat.pid }}</td>
+                                        <td>{{ pat.age }}</td>
+                                        <td>{{ pat.gender }}</td>
+                                        <td>{{ pat.pic }}</td>
+                                        <td>
+                                            <a class="btn btn-xs btn-info" href="{% url 'viewPatient' pat.pid %}" style="width: 73px; height: 24px;">
+                                                <i class="fa fa-pencil"></i>
+                                                <span style="font-size: 13px;"> Edit</span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <form method="POST" action="{% url 'delete' pat.pid %}" class="btn btn-xs btn-theme04">
+                                                <i class="fa fa-trash"></i>
+                                                {% csrf_token %}<input type="submit" value="DELETE" style="border: none; background-color: transparent;">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- col-lg-12-->
+        </div>
+    {% endblock %}
+    </body>
+</html>
