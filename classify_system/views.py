@@ -7,8 +7,6 @@ from classify_system.forms import RegistrationForm
 from django.core.exceptions import PermissionDenied
 import firebase_admin
 from firebase_admin import credentials, firestore, storage
-from django.contrib.staticfiles.storage import staticfiles_storage
-from django.core.files import File
 import time
 from datetime import datetime, timezone
 import pytz
@@ -20,7 +18,6 @@ from fastai.vision.image import Image as I
 
 from PIL import Image
 from urllib.request import urlopen
-
 import torchvision.transforms as T
 
 serviceAccount = {
