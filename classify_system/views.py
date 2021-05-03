@@ -107,7 +107,7 @@ def postRegisterD(request):
         "level": level
     }
     database.child("user").child(uid).child("details").set(data)
-    return render(request, "registration/login.html")
+    return render(request, "login.html")
 
 def postRegisterS(request):
     name = request.POST.get('name')
@@ -127,7 +127,7 @@ def postRegisterS(request):
         "level": level
     }
     database.child("user").child(uid).child("details").set(data)
-    return render(request, "registration/login.html")
+    return render(request, "login.html")
 
 def aboutPage(request):
     curr_u = retrieveCurrU(request)
@@ -135,11 +135,11 @@ def aboutPage(request):
     return render(request, "about.html", {"name": u_name, "about": "active",})
 
 def login(request):
-    return render(request, "registration/login.html")
+    return render(request, "login.html")
 
 def logout(request):
     auth.logout(request)
-    return render(request, "registration/login.html")
+    return render(request, "login.html")
 
 def post_login(request):
     email = request.POST.get('email')
