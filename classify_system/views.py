@@ -6,7 +6,7 @@ import pyrebase
 from classify_system.forms import RegistrationForm
 from django.core.exceptions import PermissionDenied
 import firebase_admin
-from firebase_admin import credentials, firestore, storage
+from firebase_admin import credentials, storage
 import time
 from datetime import datetime, timezone
 import pytz
